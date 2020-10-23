@@ -8,15 +8,14 @@ class User < ApplicationRecord
   end
  
   with_options presence:true, format: {with: /\A[ァ-ン]+\z/} do
-     validates :last_name_kana  , presence: true
+    validates :last_name_kana  , presence: true
     validates :first_name_kana , presence: true
   end
 
     validates :birth_date      , presence: true
     
     PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i.freeze
-    validates_format_of :encrypted_password, with:PASSWORD_REGEX 
-
+    validates_format_of :password, with: PASSWORD_REGEX 
 
     has_many :items
     has_many :orders
