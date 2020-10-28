@@ -45,7 +45,7 @@ RSpec.describe Item, type: :model do
       end
       it do
         'カテゴリー情報がid:1だと商品出品できない'
-        @item.category = Category.create(id: 1)
+        @item.category_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Category must be other than 1")
       end
@@ -57,7 +57,7 @@ RSpec.describe Item, type: :model do
       end
       it do
         '商品状態の情報がid:1だと商品出品できない'
-        @item.sales_status = SalesStatus.create(id: 1)
+        @item.sales_status_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Sales status must be other than 1")
       end
@@ -69,7 +69,7 @@ RSpec.describe Item, type: :model do
       end
       it do
         '配送料負担の情報がid:1だと商品出品できない'
-        @item.shipping_fee_status = ShippingFeeStatus.create(id: 1)
+        @item.shipping_fee_status_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Shipping fee status must be other than 1")
       end
@@ -81,7 +81,7 @@ RSpec.describe Item, type: :model do
       end
       it do
         '配送元の地域の情報がid:1だと商品出品できない'
-        @item.prefecture = Prefecture.create(id: 1)
+        @item.prefecture_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Prefecture must be other than 1")
       end
@@ -93,7 +93,7 @@ RSpec.describe Item, type: :model do
       end
       it do
         '配送までの日数についての情報がid:1だと商品出品できない'
-        @item.scheduled_delivery = ScheduledDelivery.create(id: 1)
+        @item.scheduled_delivery_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Scheduled delivery must be other than 1")
       end
