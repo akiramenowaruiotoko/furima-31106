@@ -23,9 +23,9 @@ RSpec.describe OrderShippingAddress, type: :model do
         expect(@order_shipping_address.errors.full_messages).to include("Postal code can't be blank")
       end
       it 'postal_codeにハイフンが存在しないと購入できない' do
-        @order_shipping_address.postal_code = "1234567"
+        @order_shipping_address.postal_code = '1234567'
         @order_shipping_address.valid?
-        expect(@order_shipping_address.errors.full_messages).to include("Postal code is invalid. Include hyphen(-)")
+        expect(@order_shipping_address.errors.full_messages).to include('Postal code is invalid. Include hyphen(-)')
       end
       it 'prefecture_idが存在しないと購入できない' do
         @order_shipping_address.prefecture_id = nil
@@ -53,16 +53,15 @@ RSpec.describe OrderShippingAddress, type: :model do
         expect(@order_shipping_address.errors.full_messages).to include("Phone number can't be blank")
       end
       it 'phone_numberが11桁以内でないと購入できない' do
-        @order_shipping_address.phone_number = "123456789012"
+        @order_shipping_address.phone_number = '123456789012'
         @order_shipping_address.valid?
-        expect(@order_shipping_address.errors.full_messages).to include("Phone number is invalid")
+        expect(@order_shipping_address.errors.full_messages).to include('Phone number is invalid')
       end
       it 'tokenが存在しないと購入できない' do
         @order_shipping_address.token = nil
         @order_shipping_address.valid?
         expect(@order_shipping_address.errors.full_messages).to include("Token can't be blank")
       end
-      
     end
   end
 end
